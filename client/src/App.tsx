@@ -1,10 +1,9 @@
-import { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { useEffect, useState } from "react";
 import { Loader } from "@/components/Loader";
 import { Layout } from "@/components/Layout";
-import { Experience } from "@/Experience";
 import { useAudio } from "@/lib/stores/useAudio";
 import { Helmet } from "react-helmet-async";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,34 +41,56 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>John Doe | Interactive 3D Portfolio</title>
-        <meta name="description" content="Explore my 3D interactive portfolio featuring my projects, skills, and experience in web development and design." />
+        <title>John Doe | Interactive Portfolio</title>
+        <meta name="description" content="Explore my interactive portfolio featuring my projects, skills, and experience in web development and design." />
       </Helmet>
 
-      {!loaded && <Loader />}
+      <AnimatePresence>
+        {!loaded && <Loader />}
+      </AnimatePresence>
 
-      <div className={`app-container ${loaded ? 'loaded' : 'loading'}`}>
-        <Canvas
-          shadows
-          camera={{
-            position: [0, 2, 10],
-            fov: 45,
-            near: 0.1,
-            far: 1000
-          }}
-          gl={{
-            antialias: true,
-            alpha: true,
-            powerPreference: "default"
-          }}
-        >
-          <Suspense fallback={null}>
-            <Experience />
-          </Suspense>
-        </Canvas>
+      <motion.div 
+        className={`app-container ${loaded ? 'loaded' : 'loading'}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        {/* Background animation with particles */}
+        <div className="space-background">
+          <div className="stars-container">
+            {[...Array(100)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="star"
+                initial={{ 
+                  top: `${Math.random() * 100}%`, 
+                  left: `${Math.random() * 100}%`,
+                  scale: Math.random() * 0.5 + 0.5
+                }}
+                animate={{ 
+                  opacity: [0.2, 0.8, 0.2],
+                  scale: [1, 1.5, 1]
+                }}
+                transition={{ 
+                  duration: Math.random() * 3 + 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 5
+                }}
+                style={{
+                  position: 'absolute',
+                  width: `${Math.random() * 3 + 1}px`,
+                  height: `${Math.random() * 3 + 1}px`,
+                  backgroundColor: `hsl(${210 + Math.random() * 30}, 100%, ${70 + Math.random() * 30}%)`,
+                  borderRadius: '50%',
+                  boxShadow: `0 0 ${Math.random() * 10 + 5}px hsl(210, 100%, 70%)`
+                }}
+              />
+            ))}
+          </div>
+        </div>
 
         <Layout />
-      </div>
+      </motion.div>
     </>
   );
 }

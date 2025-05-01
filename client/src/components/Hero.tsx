@@ -43,19 +43,56 @@ export function Hero() {
       {/* Cosmic gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-transparent to-purple-950/30 z-0"></div>
       
-      {/* Animated stars background - these are separate from the 3D particles */}
-      <div className="absolute inset-0 overflow-hidden opacity-50">
-        {[...Array(20)].map((_, i) => (
-          <div 
+      {/* Animated stars background with Framer Motion */}
+      <div className="absolute inset-0 overflow-hidden opacity-70">
+        {[...Array(40)].map((_, i) => (
+          <motion.div 
             key={i}
-            className="absolute bg-white rounded-full shadow-glow"
-            style={{
+            className="absolute bg-white rounded-full"
+            initial={{ 
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
-              opacity: Math.random() * 0.7 + 0.3,
-              animation: `twinkle ${Math.random() * 5 + 3}s ease-in-out infinite ${Math.random() * 5}s`
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              opacity: 0.3
+            }}
+            animate={{ 
+              opacity: [0.3, 1, 0.3],
+              scale: [1, 1.5, 1],
+              boxShadow: [
+                '0 0 5px rgba(255, 255, 255, 0.3)',
+                '0 0 10px rgba(100, 180, 255, 0.8)',
+                '0 0 5px rgba(255, 255, 255, 0.3)'
+              ]
+            }}
+            transition={{ 
+              duration: Math.random() * 5 + 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2
+            }}
+          />
+        ))}
+        
+        {/* Floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-70"
+            initial={{
+              top: `${Math.random() * 100}%`,
+              left: -10,
+              opacity: 0.7
+            }}
+            animate={{
+              left: "110%",
+              top: [`${Math.random() * 100}%`, `${Math.random() * 100}%`, `${Math.random() * 100}%`]
+            }}
+            transition={{
+              duration: Math.random() * 30 + 20,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 10
             }}
           />
         ))}
