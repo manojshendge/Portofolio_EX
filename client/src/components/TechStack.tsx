@@ -95,7 +95,7 @@ export function TechStack() {
               variants={itemVariants}
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
             >
-              <h3 className="text-lg font-bold text-blue-600 mb-4 border-b border-slate-100 pb-2">{category}</h3>
+              <h3 className="text-lg font-bold text-teal-600 mb-4 border-b border-slate-100 pb-2">{category}</h3>
               <div className="flex flex-wrap gap-2">
                 {techStack
                   .filter(tech => tech.category === category)
@@ -138,7 +138,7 @@ export function TechStack() {
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2.5">
                   <motion.div 
-                    className="bg-blue-600 h-2.5 rounded-full" 
+                    className="bg-teal-600 h-2.5 rounded-full" 
                     initial={{ width: 0 }}
                     animate={{ width: `${item.level}%` }}
                     transition={{ duration: 1, delay: 0.5 + (index * 0.1) }}

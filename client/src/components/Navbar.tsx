@@ -47,12 +47,12 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 w-full px-6 py-4 z-50 transition-all duration-300",
-        isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
       )}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <motion.div 
-          className="font-bold text-2xl text-primary cursor-pointer"
+          className="font-bold text-2xl text-teal-600 cursor-pointer"
           whileHover={{ scale: 1.05 }}
           onClick={() => scrollToSection("hero")}
         >
@@ -66,7 +66,7 @@ export function Navbar() {
               key={item.id}
               className={cn(
                 "text-sm font-medium relative",
-                currentSection === item.id ? "text-primary" : "text-muted-foreground hover:text-white"
+                currentSection === item.id ? "text-teal-600" : "text-slate-600 hover:text-teal-700"
               )}
               onClick={() => scrollToSection(item.id)}
               whileHover={{ scale: 1.1 }}
@@ -74,7 +74,7 @@ export function Navbar() {
               {item.title}
               {currentSection === item.id && (
                 <motion.div 
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary" 
+                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-teal-600" 
                   layoutId="navbar-underline"
                 />
               )}
@@ -82,7 +82,7 @@ export function Navbar() {
           ))}
           
           <motion.button 
-            className="ml-6 p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+            className="ml-6 p-2 rounded-full bg-teal-50 hover:bg-teal-100 text-teal-600 transition-colors"
             onClick={toggleMute}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -118,7 +118,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/90 backdrop-blur-md"
+            className="md:hidden bg-white/95 backdrop-blur-md shadow-lg"
           >
             <div className="flex flex-col py-4 px-6 space-y-4">
               {navItems.map((item) => (
@@ -126,7 +126,7 @@ export function Navbar() {
                   key={item.id}
                   className={cn(
                     "text-left py-2 text-base font-medium",
-                    currentSection === item.id ? "text-primary" : "text-muted-foreground"
+                    currentSection === item.id ? "text-teal-600" : "text-slate-600"
                   )}
                   onClick={() => scrollToSection(item.id)}
                   whileHover={{ x: 5 }}
