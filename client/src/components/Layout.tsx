@@ -11,7 +11,7 @@ import { Footer } from "./Footer";
 import { Chatbot } from "./Chatbot";
 import { EasterEgg } from "./EasterEgg";
 import { ScrollIndicator } from "./ScrollIndicator";
-import { usePortfolio } from "@/lib/stores/usePortfolio";
+import { usePortfolio, Section } from "@/lib/stores/usePortfolio";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -25,7 +25,7 @@ export function Layout() {
   useEffect(() => {
     if (!layoutRef.current) return;
     
-    const sections = ["hero", "about", "techStack", "career", "projects", "testimonials", "contact"];
+    const sections: Section[] = ["hero", "about", "techStack", "career", "projects", "testimonials", "contact"];
     
     // Create scroll triggers for each section
     sections.forEach((section) => {

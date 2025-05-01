@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 // Define the types of sections in the portfolio
-type Section = "hero" | "about" | "techStack" | "career" | "projects" | "testimonials" | "contact";
+export type Section = "hero" | "about" | "techStack" | "career" | "projects" | "testimonials" | "contact";
 
 interface PortfolioState {
   // Current active section
