@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Volume2, VolumeX } from "lucide-react";
-import { usePortfolio } from "@/lib/stores/usePortfolio";
+import { usePortfolio, Section } from "@/lib/stores/usePortfolio";
 import { useAudio } from "@/lib/stores/useAudio";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ export function Navbar() {
   const { currentSection, setCurrentSection } = usePortfolio();
   const { isMuted, toggleMute } = useAudio();
   
-  const navItems = [
+  const navItems: {title: string, id: Section}[] = [
     { title: "Home", id: "hero" },
     { title: "About", id: "about" },
     { title: "Tech Stack", id: "techStack" },
@@ -30,7 +30,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: Section) => {
     setCurrentSection(sectionId);
     setIsMobileMenuOpen(false);
     

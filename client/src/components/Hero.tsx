@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ExternalLink } from "lucide-react";
 import gsap from "gsap";
-import { usePortfolio } from "@/lib/stores/usePortfolio";
+import { usePortfolio, Section } from "@/lib/stores/usePortfolio";
 import { useChatbot } from "@/lib/stores/useChatbot";
 
 export function Hero() {

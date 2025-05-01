@@ -98,9 +98,14 @@ export function Projects() {
               </div>
               
               <div className="h-24 bg-gradient-to-b from-secondary/10 to-secondary/80 p-4 flex items-end">
-                <button className="w-full py-2 rounded-md bg-primary/80 hover:bg-primary text-primary-foreground text-sm font-medium transition-colors">
+                <a 
+                  href={project.live || project.github || "#"} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full py-2 rounded-md bg-primary/80 hover:bg-primary text-primary-foreground text-sm font-medium transition-colors text-center"
+                >
                   View Project
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}

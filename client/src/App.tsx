@@ -12,17 +12,29 @@ function App() {
 
   // Load audio assets
   useEffect(() => {
+    // Background music
     const bgMusic = new Audio("/sounds/background.mp3");
     bgMusic.loop = true;
     bgMusic.volume = 0.2;
     setBackgroundMusic(bgMusic);
-
+    
+    // Hit sound effect
     const hit = new Audio("/sounds/hit.mp3");
+    hit.volume = 0.3;
     setHitSound(hit);
-
+    
+    // Success sound effect
     const success = new Audio("/sounds/success.mp3");
+    success.volume = 0.4;
     setSuccessSound(success);
 
+    // Preload audio files
+    bgMusic.load();
+    hit.load();
+    success.load();
+    
+    console.log("Audio assets loaded");
+    
     // Set loaded after a minimum time to avoid flickering
     setTimeout(() => setLoaded(true), 2000);
   }, [setBackgroundMusic, setHitSound, setSuccessSound]);
