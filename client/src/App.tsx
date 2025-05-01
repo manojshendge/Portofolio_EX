@@ -50,7 +50,6 @@ function App() {
             alpha: true,
             powerPreference: "default"
           }}
-          style={{ position: "fixed", top: 0, left: 0, zIndex: 1 }}
         >
           <Suspense fallback={null}>
             <Experience />

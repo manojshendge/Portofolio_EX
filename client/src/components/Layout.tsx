@@ -58,11 +58,11 @@ export function Layout() {
   }, [setCurrentSection, setScrollProgress]);
   
   return (
-    <div ref={layoutRef} className="layout-container relative z-10">
+    <div ref={layoutRef} className="layout-container relative z-10 w-full">
       <Navbar />
       <ScrollIndicator />
       
-      <main className="main-content">
+      <main className="main-content relative z-10">
         <Hero />
         <About />
         <TechStack />
