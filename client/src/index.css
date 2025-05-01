@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --background: 10 10 15;
-    --foreground: 230 230 245;
+    --background: 255 255 255;
+    --foreground: 15 23 42;
     
-    --primary: 130 210 255;
-    --primary-foreground: 10 10 15;
+    --primary: 37 99 235;
+    --primary-foreground: 255 255 255;
     
-    --accent: 255 150 220;
-    --secondary: 50 60 90;
+    --accent: 79 70 229;
+    --secondary: 241 245 249;
   }
   
   * {
@@ -36,23 +36,28 @@
   position: relative;
 }
 
-.space-background {
+.page-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #0a0a18 0%, #0d1938 50%, #061029 100%);
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   overflow: hidden;
   z-index: 0;
 }
 
-.stars-container {
+.pattern-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  background-image: linear-gradient(to right, rgba(243, 244, 246, 0.8) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(243, 244, 246, 0.8) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.4;
 }
 
 .app-container {
@@ -85,7 +90,7 @@ section {
   padding: 80px 0;
 }
 
-/* Add a subtle gradient overlay to improve text readability over 3D scene */
+/* Professional section styling */
 section::before {
   content: '';
   position: absolute;
@@ -93,42 +98,81 @@ section::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, 
-    rgba(5, 5, 10, 0.7) 0%, 
-    rgba(10, 15, 30, 0.5) 50%, 
-    rgba(5, 5, 10, 0.7) 100%);
+  background: linear-gradient(to right, 
+    rgba(243, 244, 246, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(243, 244, 246, 0.1) 100%);
   z-index: -1;
   pointer-events: none;
 }
 
-/* Glowing effects */
-.shadow-glow {
-  box-shadow: 0 0 10px rgba(120, 200, 255, 0.5), 0 0 20px rgba(100, 150, 255, 0.3);
+/* Section dividers */
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(203, 213, 225, 0.7), transparent);
+}
+
+/* Professional subtle shadow effects */
+.shadow-subtle {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
-.shadow-glow:hover {
-  box-shadow: 0 0 15px rgba(120, 200, 255, 0.7), 0 0 30px rgba(100, 150, 255, 0.5);
+.shadow-subtle:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Modern space theme classes */
-.text-glow {
-  text-shadow: 0 0 10px rgba(120, 200, 255, 0.7);
+/* Professional text effects */
+.heading-underline {
+  position: relative;
+  display: inline-block;
 }
 
-.cosmic-bg {
-  background: linear-gradient(135deg, rgba(20, 30, 50, 0.8), rgba(30, 40, 80, 0.8));
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 40px;
+  height: 3px;
+  background-color: #2563eb;
 }
 
-/* Twinkling stars animation */
-@keyframes twinkle {
+/* Professional backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Skill badge styles */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1e40af;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+  background-color: #dbeafe;
+  transform: translateY(-1px);
+}
+
+/* Animation for attention */
+@keyframes subtle-bounce {
   0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.8);
+    transform: translateY(0);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(70, 130, 240, 0.4);
+    transform: translateY(-5px);
   }
 }

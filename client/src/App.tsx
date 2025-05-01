@@ -55,38 +55,41 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        {/* Background animation with particles */}
-        <div className="space-background">
-          <div className="stars-container">
-            {[...Array(100)].map((_, i) => (
+        {/* Professional background with subtle patterns */}
+        <div className="page-background">
+          <div className="pattern-overlay"></div>
+          
+          {/* Subtle animated elements - much more subtle and professional looking */}
+          <motion.div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            {/* Geometric shapes in the background */}
+            {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                className="star"
+                className="absolute rounded-full bg-blue-600/5 border border-blue-100"
                 initial={{ 
                   top: `${Math.random() * 100}%`, 
                   left: `${Math.random() * 100}%`,
-                  scale: Math.random() * 0.5 + 0.5
+                  width: `${Math.random() * 100 + 50}px`,
+                  height: `${Math.random() * 100 + 50}px`,
+                  opacity: 0.5
                 }}
                 animate={{ 
-                  opacity: [0.2, 0.8, 0.2],
-                  scale: [1, 1.5, 1]
+                  y: [0, -10, 0],
+                  opacity: [0.3, 0.5, 0.3],
+                  rotate: 360
                 }}
                 transition={{ 
-                  duration: Math.random() * 3 + 2,
+                  duration: Math.random() * 20 + 15,
                   repeat: Infinity,
-                  delay: Math.random() * 5
-                }}
-                style={{
-                  position: 'absolute',
-                  width: `${Math.random() * 3 + 1}px`,
-                  height: `${Math.random() * 3 + 1}px`,
-                  backgroundColor: `hsl(${210 + Math.random() * 30}, 100%, ${70 + Math.random() * 30}%)`,
-                  borderRadius: '50%',
-                  boxShadow: `0 0 ${Math.random() * 10 + 5}px hsl(210, 100%, 70%)`
+                  ease: "linear"
                 }}
               />
             ))}
-          </div>
+            
+            {/* Professional accent lines */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+          </motion.div>
         </div>
 
         <Layout />

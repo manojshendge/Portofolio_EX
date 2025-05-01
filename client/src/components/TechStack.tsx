@@ -1,16 +1,20 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-// Tech stack data
+// Tech stack data - using industry standard icons and colors
 const techStack = [
-  { name: "React", color: "#00B7FF", icon: "🔄", backgroundColor: "#007EA7" },
-  { name: "JavaScript", color: "#F0DB4F", icon: "📜", backgroundColor: "#323330" },
-  { name: "TypeScript", color: "#007ACC", icon: "📘", backgroundColor: "#007ACC" },
-  { name: "Framer Motion", color: "#FF4D8D", icon: "🔄", backgroundColor: "#C6074F" },
-  { name: "Tailwind", color: "#38B2AC", icon: "🎨", backgroundColor: "#0B7A75" },
-  { name: "Node.js", color: "#68A063", icon: "🔢", backgroundColor: "#3C873A" },
-  { name: "HTML/CSS", color: "#E34F26", icon: "📝", backgroundColor: "#AD3416" },
-  { name: "Firebase", color: "#FFCA28", icon: "🔥", backgroundColor: "#F57C00" }
+  { name: "React", color: "#61DAFB", icon: "react", backgroundColor: "#ffffff", category: "Frontend" },
+  { name: "JavaScript", color: "#F7DF1E", icon: "js", backgroundColor: "#ffffff", category: "Languages" },
+  { name: "TypeScript", color: "#3178C6", icon: "ts", backgroundColor: "#ffffff", category: "Languages" },
+  { name: "Framer Motion", color: "#0055FF", icon: "framer", backgroundColor: "#ffffff", category: "Animation" },
+  { name: "Tailwind CSS", color: "#06B6D4", icon: "tailwind", backgroundColor: "#ffffff", category: "Frontend" },
+  { name: "Node.js", color: "#339933", icon: "node", backgroundColor: "#ffffff", category: "Backend" },
+  { name: "HTML5", color: "#E34F26", icon: "html", backgroundColor: "#ffffff", category: "Frontend" },
+  { name: "CSS3", color: "#1572B6", icon: "css", backgroundColor: "#ffffff", category: "Frontend" },
+  { name: "MongoDB", color: "#47A248", icon: "mongodb", backgroundColor: "#ffffff", category: "Backend" },
+  { name: "PostgreSQL", color: "#336791", icon: "postgresql", backgroundColor: "#ffffff", category: "Backend" },
+  { name: "Git", color: "#F05032", icon: "git", backgroundColor: "#ffffff", category: "Tools" },
+  { name: "Docker", color: "#2496ED", icon: "docker", backgroundColor: "#ffffff", category: "DevOps" }
 ];
 
 export function TechStack() {
@@ -56,129 +60,114 @@ export function TechStack() {
     <section 
       id="techStack" 
       ref={containerRef}
-      className="py-16 relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="py-16 relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg"
     >
-      {/* Background gradient for better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-950/20 to-purple-950/30 z-0"></div>
+      {/* Subtle grid background pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50 z-0"></div>
       
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-6 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 w-full py-12"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         <div className="text-center mb-12">
           <motion.h2 
-            className="text-3xl sm:text-5xl font-bold mb-4 text-white drop-shadow-lg text-glow"
+            className="text-3xl sm:text-4xl font-bold mb-6 text-slate-800 heading-underline inline-block"
             variants={itemVariants}
           >
-            My Tech Universe
+            Technical Expertise
           </motion.h2>
           <motion.p 
-            className="text-xl text-blue-200 max-w-2xl mx-auto"
+            className="text-lg text-slate-600 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            The technologies I use to bring ideas to life
+            I leverage industry-standard technologies to build scalable, maintainable solutions
           </motion.p>
         </div>
         
-        <div className="relative h-[500px] flex items-center justify-center">
-          {/* Central orbit system */}
-          <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
-            {/* Center core */}
+        {/* Categorized skills - more professional approach */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {["Frontend", "Backend", "Languages", "DevOps"].map((category) => (
             <motion.div 
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-blue-500 shadow-glow z-10"
-              animate={{
-                scale: [1, 1.1, 1],
-                boxShadow: [
-                  '0 0 20px rgba(59, 130, 246, 0.5)',
-                  '0 0 40px rgba(59, 130, 246, 0.8)',
-                  '0 0 20px rgba(59, 130, 246, 0.5)'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+              key={category} 
+              className="bg-white p-6 rounded-lg shadow-subtle"
               variants={itemVariants}
+              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
             >
-              <div className="absolute inset-0 flex items-center justify-center text-white font-bold">ME</div>
-            </motion.div>
-            
-            {/* Orbit paths */}
-            {[0, 1, 2].map((orbit) => (
-              <motion.div 
-                key={`orbit-${orbit}`}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400/30"
-                style={{ 
-                  width: `${(orbit + 1) * 33}%`, 
-                  height: `${(orbit + 1) * 33}%` 
-                }}
-                variants={itemVariants}
-              />
-            ))}
-            
-            {/* Tech icons in orbit */}
-            {techStack.map((tech, index) => {
-              // Calculate orbit position
-              const orbitRadius = (((index % 3) + 1) * 33) / 2;
-              const angle = (index * (360 / techStack.length)) * (Math.PI / 180);
-              
-              return (
-                <motion.div
-                  key={tech.name}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                  animate={{
-                    x: Math.cos(angle) * orbitRadius * 2,
-                    y: Math.sin(angle) * orbitRadius * 2,
-                    rotate: 360
-                  }}
-                  transition={{
-                    duration: 20 + index * 5,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  variants={itemVariants}
-                >
-                  <motion.div
-                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-glow flex items-center justify-center cursor-pointer"
-                    style={{ backgroundColor: tech.backgroundColor }}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <span className="text-white text-xl">{tech.icon}</span>
-                    <motion.div
-                      className="absolute whitespace-nowrap top-full mt-2 px-3 py-1 rounded-full text-xs font-bold"
-                      style={{ color: tech.color, background: `${tech.backgroundColor}66` }}
-                      animate={{ opacity: [0.7, 1, 0.7] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+              <h3 className="text-lg font-bold text-blue-600 mb-4 border-b border-slate-100 pb-2">{category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {techStack
+                  .filter(tech => tech.category === category)
+                  .map(tech => (
+                    <motion.div 
+                      key={tech.name}
+                      className="skill-badge"
+                      whileHover={{ scale: 1.05 }}
+                      style={{ 
+                        borderLeft: `3px solid ${tech.color}`,
+                      }}
                     >
                       {tech.name}
                     </motion.div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  ))
+                }
+              </div>
+            </motion.div>
+          ))}
         </div>
         
-        {/* Technologies list */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto mt-8"
+        {/* Professional skill bars - common in industry portfolios */}
+        <motion.div 
+          className="mb-12"
           variants={itemVariants}
         >
-          {techStack.map((tech) => (
-            <motion.span
-              key={`tag-${tech.name}`}
-              className="px-5 py-2 rounded-full shadow-glow backdrop-blur-sm text-sm font-medium"
-              style={{ backgroundColor: tech.backgroundColor, color: tech.color }}
-              whileHover={{ scale: 1.1, boxShadow: `0 0 15px ${tech.color}` }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {tech.name}
-            </motion.span>
-          ))}
+          <h3 className="text-xl font-bold text-slate-700 mb-6">Core Proficiencies</h3>
+          <div className="space-y-5 max-w-3xl mx-auto">
+            {[
+              { skill: "Frontend Development", level: 95 },
+              { skill: "Responsive Design", level: 90 },
+              { skill: "Modern JavaScript", level: 92 },
+              { skill: "React & Component Libraries", level: 88 },
+              { skill: "API Integration", level: 85 }
+            ].map((item, index) => (
+              <div key={index} className="relative">
+                <div className="flex justify-between mb-1">
+                  <span className="text-sm font-medium text-slate-700">{item.skill}</span>
+                  <span className="text-sm font-medium text-slate-500">{item.level}%</span>
+                </div>
+                <div className="w-full bg-slate-200 rounded-full h-2.5">
+                  <motion.div 
+                    className="bg-blue-600 h-2.5 rounded-full" 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${item.level}%` }}
+                    transition={{ duration: 1, delay: 0.5 + (index * 0.1) }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+        
+        {/* Tools I use - simple clean grid */}
+        <motion.div
+          className="mt-12"
+          variants={itemVariants}
+        >
+          <h3 className="text-xl font-bold text-slate-700 mb-6 text-center">Tools & Technologies</h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {techStack.map((tech) => (
+              <motion.div
+                key={`tech-${tech.name}`}
+                className="px-4 py-2 rounded-md bg-white shadow-subtle flex items-center gap-2 border border-slate-200"
+                whileHover={{ y: -2, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+                style={{ color: tech.color }}
+              >
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: tech.color }}></div>
+                <span className="font-medium text-slate-700 text-sm">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </motion.div>
     </section>
