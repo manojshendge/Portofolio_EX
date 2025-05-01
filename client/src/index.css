@@ -110,3 +110,16 @@ section::before {
 .cosmic-bg {
   background: linear-gradient(135deg, rgba(20, 30, 50, 0.8), rgba(30, 40, 80, 0.8));
 }
+
+/* Twinkling stars animation */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(70, 130, 240, 0.4);
+  }
+}
