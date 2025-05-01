@@ -111,7 +111,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-center mb-4"
           >
-            <span className="px-4 py-1.5 text-xs font-semibold tracking-wider bg-blue-100 text-blue-600 rounded-md border border-blue-200">
+            <span className="px-4 py-1.5 text-xs font-semibold tracking-wider bg-teal-50 text-teal-600 rounded-md border border-teal-200">
               FULLSTACK DEVELOPER
             </span>
           </motion.div>
@@ -122,7 +122,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="heading-underline text-5xl sm:text-6xl md:text-7xl font-bold text-center mb-6 text-slate-800"
           >
-            Crafting <span className="text-blue-600">Exceptional</span> Digital Solutions
+            Crafting <span className="text-teal-600">Exceptional</span> Digital Solutions
           </motion.h1>
           
           <motion.p
@@ -144,7 +144,7 @@ export function Hero() {
             <motion.button
               whileHover={{ y: -2 }}
               whileTap={{ y: 1 }}
-              className="px-8 py-3 rounded-md bg-blue-600 text-white font-medium shadow-subtle"
+              className="px-8 py-3 rounded-md bg-teal-600 text-white font-medium shadow-subtle"
               onClick={toggleChatbot}
             >
               Get in Touch
@@ -173,7 +173,7 @@ export function Hero() {
               { number: "15+", label: "Happy Clients" }
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <h3 className="text-3xl font-bold text-blue-600">{stat.number}</h3>
+                <h3 className="text-3xl font-bold text-teal-600">{stat.number}</h3>
                 <p className="text-sm text-slate-500">{stat.label}</p>
               </div>
             ))}
@@ -190,9 +190,9 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="p-3 rounded-full border border-blue-200 bg-white shadow-subtle"
+            className="p-3 rounded-full border border-teal-200 bg-white shadow-subtle"
           >
-            <ArrowDown className="w-5 h-5 text-blue-600" />
+            <ArrowDown className="w-5 h-5 text-teal-600" />
           </motion.div>
         </motion.div>
       </div>
