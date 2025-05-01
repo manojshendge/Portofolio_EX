@@ -49,15 +49,26 @@ export function Experience() {
         makeDefault
       />
       
-      <Environment preset="city" />
-            
+      <Environment preset="night" />
+      
+      {/* Main directional light */}
       <directionalLight 
         position={[5, 5, 5]} 
-        intensity={0.8} 
+        intensity={1.5} 
         castShadow 
         shadow-mapSize={[1024, 1024]}
+        color="#ffffff"
       />
-      <ambientLight intensity={0.5} />
+      
+      {/* Fill light from opposite side */}
+      <directionalLight 
+        position={[-5, 3, -5]} 
+        intensity={0.8} 
+        color="#8080ff"
+      />
+      
+      {/* Ambient light for overall scene brightness */}
+      <ambientLight intensity={0.6} color="#334" />
       
       <SpaceParticles count={1000} />
       
