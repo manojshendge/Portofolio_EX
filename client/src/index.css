@@ -91,3 +91,22 @@ section::before {
   z-index: -1;
   pointer-events: none;
 }
+
+/* Glowing effects */
+.shadow-glow {
+  box-shadow: 0 0 10px rgba(120, 200, 255, 0.5), 0 0 20px rgba(100, 150, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.shadow-glow:hover {
+  box-shadow: 0 0 15px rgba(120, 200, 255, 0.7), 0 0 30px rgba(100, 150, 255, 0.5);
+}
+
+/* Modern space theme classes */
+.text-glow {
+  text-shadow: 0 0 10px rgba(120, 200, 255, 0.7);
+}
+
+.cosmic-bg {
+  background: linear-gradient(135deg, rgba(20, 30, 50, 0.8), rgba(30, 40, 80, 0.8));
+}
