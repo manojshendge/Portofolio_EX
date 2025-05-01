@@ -94,7 +94,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
           <motion.button 
-            className="p-2 text-white"
+            className="p-2 text-teal-600"
             onClick={toggleMute}
             whileTap={{ scale: 0.95 }}
           >
@@ -103,7 +103,7 @@ export function Navbar() {
           
           <motion.button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 ml-2"
+            className="p-2 ml-2 text-teal-600"
             whileTap={{ scale: 0.95 }}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

@@ -65,7 +65,7 @@ function App() {
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full bg-blue-600/5 border border-blue-100"
+                className="absolute rounded-full bg-teal-600/5 border border-teal-100"
                 initial={{ 
                   top: `${Math.random() * 100}%`, 
                   left: `${Math.random() * 100}%`,
@@ -87,8 +87,8 @@ function App() {
             ))}
             
             {/* Professional accent lines */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent"></div>
           </motion.div>
         </div>
 
