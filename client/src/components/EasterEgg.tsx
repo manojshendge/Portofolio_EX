@@ -55,12 +55,14 @@ export function EasterEgg() {
   }, [isGameActive, timeLeft, playSuccess]);
   
   const startGame = () => {
+    playHit();
     setIsGameActive(true);
     setScore(0);
     setTimeLeft(30);
   };
   
   const closeEasterEgg = () => {
+    playHit();
     setIsEggFound(false);
     setIsGameActive(false);
     setScore(0);

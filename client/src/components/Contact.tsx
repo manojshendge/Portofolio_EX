@@ -2,12 +2,14 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Loader2 } from "lucide-react";
 import gsap from "gsap";
+import { useAudio } from "@/lib/stores/useAudio";
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, amount: 0.3 });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { playHit, playSuccess } = useAudio();
   
   useEffect(() => {
     if (!containerRef.current || !isInView) return;
@@ -30,10 +32,16 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Play sound on form submission
+    playHit();
+    
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setFormSubmitted(true);
+      
+      // Play success sound when form is successfully submitted
+      playSuccess();
     }, 1500);
   };
 
@@ -118,7 +126,10 @@ export function Contact() {
                 </p>
                 <button 
                   className="mt-6 px-6 py-2 rounded-md bg-primary/80 hover:bg-primary text-primary-foreground transition-colors"
-                  onClick={() => setFormSubmitted(false)}
+                  onClick={() => {
+                    playHit();
+                    setFormSubmitted(false);
+                  }}
                 >
                   Send Another Message
                 </button>
