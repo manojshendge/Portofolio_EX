@@ -66,9 +66,8 @@ export function CareerTimeline({ position = [0, 0, 0] }: CareerTimelineProps) {
   return (
     <group ref={groupRef} position={new THREE.Vector3(...position)}>
       {/* Timeline path */}
-      <line ref={lineRef} geometry={lineGeometry}>
-        <lineBasicMaterial color="#5685ff" linewidth={2} />
-      </line>
+      <primitive object={new THREE.Line(lineGeometry, new THREE.LineBasicMaterial({ color: "#5685ff", linewidth: 2 }))} />
+
       
       {/* Career milestone points */}
       <points ref={pointsRef} geometry={pointsGeometry}>

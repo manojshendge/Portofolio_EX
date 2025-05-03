@@ -34,12 +34,12 @@ export function Projects() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
-            className="project-animate text-3xl sm:text-4xl font-bold mb-4"
+            className="project-animate text-black sm:text-4xl font-bold mb-4"
           >
             Featured Projects
           </motion.h2>
           <motion.p 
-            className="project-animate text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="project-animate text-primary/70  max-w-2xl mx-auto"
           >
             A showcase of my best work
           </motion.p>
@@ -49,12 +49,12 @@ export function Projects() {
           {data.projects.map((project, index) => (
             <motion.div
               key={index}
-              className="project-animate group relative overflow-hidden rounded-lg bg-secondary/40 backdrop-blur-sm border border-secondary h-[380px] flex flex-col"
+              className="project-animate group relative overflow-hidden rounded-lg bg-secondary/90 border border-secondary h-[380px] flex flex-col"
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+              <div className="p-6  flex-1 flex flex-col">
+                <div className="flex justify-between  items-start mb-4">
+                  <h3 className="text-black font-bold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <div className="flex gap-2">

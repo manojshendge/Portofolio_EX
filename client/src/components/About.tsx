@@ -127,14 +127,14 @@ export function About() {
           <div>
             <motion.h2 
               variants={itemVariants}
-              className="text-3xl sm:text-4xl font-bold mb-6 text-cyan-400 text-glow"
+              className="text-3xl sm:text-4xl font-bold mb-6 text-teal-600 text-glow"
             >
               About Me
             </motion.h2>
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-blue-100 mb-6"
+              className="text-lg text-blue-900 mb-6"
             >
               I'm a passionate developer with expertise in creating modern, interactive web applications. 
               My journey in tech started 5 years ago, and I've been building and learning ever since.
@@ -142,7 +142,7 @@ export function About() {
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-blue-100 mb-8"
+              className="text-lg text-blue-900  mb-8"
             >
               I specialize in frontend development with React and Framer Motion, but I'm also proficient in backend technologies 
               like Node.js and database management. I love working on challenging projects that push me to learn new skills.
@@ -151,7 +151,7 @@ export function About() {
             <motion.div variants={itemVariants}>
               <motion.a 
                 href="#contact" 
-                className="px-8 py-3 rounded-md bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-medium inline-block shadow-glow"
+                className="px-8 py-3 rounded-md bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-medium inline-block shadow-glow"
                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.7)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -163,7 +163,7 @@ export function About() {
           <div>
             <motion.h3 
               variants={itemVariants}
-              className="text-2xl font-bold mb-6 text-pink-300"
+              className="text-2xl font-bold mb-6 text-cyan-700"
             >
               Why Hire Me?
             </motion.h3>
@@ -182,7 +182,7 @@ export function About() {
                   }}
                 >
                   <CheckCircle2 className="w-6 h-6 text-cyan-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-blue-50">{reason}</span>
+                  <span className="text-blue-900">{reason}</span>
                 </motion.div>
               ))}
             </div>

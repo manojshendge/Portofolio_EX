@@ -33,31 +33,28 @@ export function Career() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
-            className="career-animate text-3xl sm:text-4xl font-bold mb-4"
+            className="career-animate text-black sm:text-4xl font-bold mb-4"
           >
-            My Journey
+           MY JOURNY
           </motion.h2>
           <motion.p 
-            className="career-animate text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="career-animate text-primary/70 max-w-2xl mx-auto"
           >
             A visual timeline of my career path
           </motion.p>
         </div>
         
         <div className="relative">
-          {/* This div will be filled with the 3D timeline by Three.js */}
-          <div className="timeline-canvas h-[400px] mb-12">
-            {/* 3D Timeline will be rendered here */}
-          </div>
+          
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {data.career.map((item, index) => (
               <motion.div
                 key={index}
-                className="career-animate p-6 rounded-lg bg-secondary/40 backdrop-blur-sm border border-secondary"
+                className="career-animate p-6 rounded-lg bg-secondary/90 backdrop-blur-sm border border-secondary"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-bold">{item.title}</h3>
+                  <h3 className="text-black font-bold">{item.title}</h3>
                   <span className="px-3 py-1 text-xs font-semibold bg-primary/20 text-primary rounded-full">
                     {item.period}
                   </span>
